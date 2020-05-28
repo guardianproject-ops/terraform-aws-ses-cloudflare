@@ -1,0 +1,58 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: terraform-aws-ses-cloudflare
+
+# License of this project
+license: "AGPL3"
+
+# Canonical GitLab repo
+gitlab_repo: guardianproject-ops/terraform-aws-ses-cloudflare
+
+# Badges to display
+badges: []
+
+# Short description of this project
+description: |-
+  This is a terraform module that sets up a Cloudflare hosted domain for SMTP with AWS Simple Email Service (SES).
+
+  #introduction: |-
+
+# How to use this project
+usage: |-
+
+  ```hcl
+  provider "cloudflare" {
+    version   = "~> 2.0"
+    api_token = .. dns api token
+  }
+
+  module "ses {
+    source          = "git::https://gitlab.com/guardianproject-ops/terraform-aws-ses-cloudflare?ref=tags/0.1.0"
+    namespace   = var.namespace
+    stage       = var.stage
+    name        = var.name
+    tags        = var.tags
+
+    domain_name        = "example.com"
+    mail_from_domain   = "notifications.example.com"
+    dmarc_rua          = "dmarc-reports@example.com"
+    cloudflare_zone_id = ... cloudflare zone id
+  }
+  ```
+
+related: []
+
+include:
+  - "docs/terraform.md"
+
+funded_by_cdr: false
+# Contributors to this project
+contributors:
+  - name: "Abel Luck"
+    gitlab: "abelxluck"
+    gravatar: 0f605397e0ead93a68e1be26dc26481a
