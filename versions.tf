@@ -1,7 +1,13 @@
 terraform {
-  required_version = ">= 0.12"
+  required_version = ">= 0.13"
   required_providers {
-    aws        = "~> 2.0"
-    cloudflare = "~> 2.0"
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 2.0"
+    }
+    cloudflare = {
+      source  = "terraform-providers/cloudflare"
+      version = "~> 2.0"
+    }
   }
 }
