@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://gitlab.com/guardianproject-ops/terraform-aws-ses-cloudflare/compare/0.2.0...0.3.0) (2020-09-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump required aws provider version to 3.4.0
+
+### Features
+
+* bump required aws provider version to 3.4.0 ([a39357d](https://gitlab.com/guardianproject-ops/terraform-aws-ses-cloudflare/commit/a39357ddc401c3e91bd41debb028f2f34157cc58))
+
 ## [0.2.0](https://gitlab.com/guardianproject-ops/terraform-aws-ses-cloudflare/compare/0.1.0...0.2.0) (2020-09-03)
 
 
