@@ -20,8 +20,6 @@ badges: []
 description: |-
   This is a terraform module that sets up a Cloudflare hosted domain for SMTP with AWS Simple Email Service (SES).
 
-  #introduction: |-
-
 # How to use this project
 usage: |-
 

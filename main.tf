@@ -5,6 +5,9 @@ locals {
   dash_domain               = replace(var.domain_name, ".", "-")
 }
 
+data "aws_caller_identity" "current" {}
+data "aws_region" "current" {}
+
 resource "aws_ses_domain_identity" "main" {
   domain = var.domain_name
 }
@@ -62,9 +65,6 @@ resource "cloudflare_record" "spf_domain" {
   value   = "v=spf1 include:amazonses.com -all"
   type    = "TXT"
   ttl     = 600
-}
-
-data "aws_region" "current" {
 }
 
 resource "cloudflare_record" "mx_send_mail_from" {

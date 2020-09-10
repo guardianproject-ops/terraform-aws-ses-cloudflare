@@ -15,11 +15,23 @@ variable "domain_name" {
 }
 
 variable "mail_from_domain" {
-  description = " Subdomain (of the route53 zone) which is to be used as MAIL FROM address"
+  description = "Subdomain (of the route53 zone) which is to be used as MAIL FROM address"
   type        = string
 }
 
 variable "cloudflare_zone_id" {
   type        = string
   description = "The zone id of the zone"
+}
+
+variable "smtp_user_enabled" {
+  type        = bool
+  default     = true
+  description = "Whether or not to create an IAM user for SMTP access"
+}
+
+variable "iam_permissions" {
+  type        = list(string)
+  description = "Specifies permissions for the IAM user. Defaults to send SMTP email."
+  default     = ["ses:SendRawEmail"]
 }
