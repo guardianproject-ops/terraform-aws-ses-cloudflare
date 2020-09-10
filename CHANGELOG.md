@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://gitlab.com/guardianproject-ops/terraform-aws-ses-cloudflare/compare/0.3.0...0.4.0) (2020-09-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* optionally create an IAM user for use with SMTP
+
+### Features
+
+* optionally create an IAM user for use with SMTP ([827374e](https://gitlab.com/guardianproject-ops/terraform-aws-ses-cloudflare/commit/827374e90c158b0b465a0da82884cb10a6de368d))
+
 ## [0.3.0](https://gitlab.com/guardianproject-ops/terraform-aws-ses-cloudflare/compare/0.2.0...0.3.0) (2020-09-03)
 
 
