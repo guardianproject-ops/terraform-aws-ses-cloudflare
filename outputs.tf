@@ -16,7 +16,6 @@ output "smtp_username" {
 output "smtp_password" {
   description = "The password used for SMTP authentication"
   value       = join("", aws_iam_access_key.smtp.*.ses_smtp_password_v4)
-  sensitive   = true
 }
 
 output "smtp_port" {
@@ -42,5 +41,4 @@ output "iam_access_key_id" {
 output "iam_secret_access_key" {
   value       = join("", aws_iam_access_key.smtp.*.secret)
   description = "The secret access key for the smtp iam user. This will be written to the state file in plain-text."
-  sensitive   = true
 }
