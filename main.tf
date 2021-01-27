@@ -3,6 +3,7 @@ locals {
   stripped_domain_name      = replace(var.domain_name, "/[.]$/", "")
   stripped_mail_from_domain = replace(var.mail_from_domain, "/[.]$/", "")
   dash_domain               = replace(var.domain_name, ".", "-")
+  mail_from_enabled         = length(local.stripped_mail_from_domain) > 0
 }
 
 data "aws_caller_identity" "current" {}
@@ -47,13 +48,16 @@ resource "cloudflare_record" "ses_dkim" {
 }
 
 resource "aws_ses_domain_mail_from" "main" {
+  count            = local.mail_from_enabled ? 1 : 0
   domain           = aws_ses_domain_identity.main.domain
   mail_from_domain = local.stripped_mail_from_domain
 }
 
 resource "cloudflare_record" "spf_mail_from" {
+  count = local.mail_from_enabled ? 1 : 0
+
   zone_id = var.cloudflare_zone_id
-  name    = aws_ses_domain_mail_from.main.mail_from_domain
+  name    = aws_ses_domain_mail_from.main[0].mail_from_domain
   value   = "v=spf1 include:amazonses.com -all"
   type    = "TXT"
   ttl     = 600
@@ -68,8 +72,9 @@ resource "cloudflare_record" "spf_domain" {
 }
 
 resource "cloudflare_record" "mx_send_mail_from" {
+  count    = local.mail_from_enabled ? 1 : 0
   zone_id  = var.cloudflare_zone_id
-  name     = aws_ses_domain_mail_from.main.mail_from_domain
+  name     = aws_ses_domain_mail_from.main[0].mail_from_domain
   value    = "feedback-smtp.${data.aws_region.current.name}.amazonses.com"
   priority = 10
   type     = "MX"
