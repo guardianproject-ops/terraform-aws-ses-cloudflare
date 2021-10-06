@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://gitlab.com/guardianproject-ops/terraform-aws-ses-cloudflare/compare/0.4.0...0.5.0) (2021-10-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove sensitive flag
+
+### Features
+
+* mail_from_domain is now optional ([a6ae163](https://gitlab.com/guardianproject-ops/terraform-aws-ses-cloudflare/commit/a6ae1633ef16e0fd634e1cebbad9384fb5a69c38))
+
+
+### Bug Fixes
+
+* remove sensitive flag ([dc61687](https://gitlab.com/guardianproject-ops/terraform-aws-ses-cloudflare/commit/dc6168778a692eb31a135fd9d3a2d99d282fada7))
+* Update cloudflare provider path ([7c49b4e](https://gitlab.com/guardianproject-ops/terraform-aws-ses-cloudflare/commit/7c49b4ebad97539b87d1b836a90baea76c61a936))
+* update null-label ([58d9a22](https://gitlab.com/guardianproject-ops/terraform-aws-ses-cloudflare/commit/58d9a2226443dbf9c8f41b305a6331f899e00301))
+
 ## [0.4.0](https://gitlab.com/guardianproject-ops/terraform-aws-ses-cloudflare/compare/0.3.0...0.4.0) (2020-09-10)
 
 
